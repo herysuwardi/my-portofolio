@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import "./Works.css";
 import Upwork from "../../img/Upwork.png";
 import Fiverr from "../../img/fiverr.png";
@@ -8,7 +8,14 @@ import Facebook from "../../img/Facebook.png";
 import { themeContext } from "../../Context";
 import { motion } from "framer-motion";
 import { Link } from "react-scroll";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 const Works = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1500 });
+  }, []);
+
   // context
   const theme = useContext(themeContext);
   const darkMode = theme.state.darkMode;
@@ -17,7 +24,7 @@ const Works = () => {
   return (
     <div className="works" id="works">
       {/* left side */}
-      <div className="w-left">
+      <div className="w-left" data-aos="fade-right">
         <div className="awesome">
           {/* dark Mode */}
           <span style={{ color: darkMode ? "white" : "" }}>

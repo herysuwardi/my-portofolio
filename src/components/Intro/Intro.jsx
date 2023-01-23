@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import "./Intro.css";
 import Vector1 from "../../img/Vector1.png";
 import Vector2 from "../../img/Vector2.png";
@@ -13,7 +13,14 @@ import Instagram from "../../img/instagram.png";
 import { themeContext } from "../../Context";
 import { motion } from "framer-motion";
 import { Link } from "react-scroll";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 const Intro = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1500 });
+  }, []);
+
   // Transition
   const transition = { duration: 2, type: "spring" };
 
@@ -24,7 +31,7 @@ const Intro = () => {
   return (
     <div className="Intro" id="Intro">
       {/* left name side */}
-      <div className="i-left">
+      <div className="i-left" data-aos="fade-right">
         <div className="i-name">
           {/* yahan change hy darkmode ka */}
           <span style={{ color: darkMode ? "white" : "" }}>Hy! I Am</span>

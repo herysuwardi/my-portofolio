@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import "./Services.css";
 import Card from "../Card/Card";
 import HeartEmoji from "../../img/heartemoji.png";
@@ -7,8 +7,14 @@ import Humble from "../../img/humble.png";
 import { themeContext } from "../../Context";
 import { motion } from "framer-motion";
 import ResumeCv from "./cv-resume.pdf";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Services = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1500 });
+  }, []);
+
   // context
   const theme = useContext(themeContext);
   const darkMode = theme.state.darkMode;
@@ -22,7 +28,7 @@ const Services = () => {
   return (
     <div className="services" id="services">
       {/* left side */}
-      <div className="awesome">
+      <div className="awesome" data-aos="fade-down">
         {/* dark mode */}
         <span style={{ color: darkMode ? "white" : "" }}>My Awesome</span>
         <span>services</span>
